@@ -1,0 +1,43 @@
+<p style="color: green" ><%= notice %></p>
+
+<h1>Orders History</h1>
+<table class="table table-striped table-bordered table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th>Order Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Ordered Date</th>
+        <th>Gift Card Value</th>
+        <%# <th>Mobile No</th>
+        <th>Address</th> %>
+        <th>Commission<br>(10%)</th>
+        <th>Delivery Status</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+ <tbody>
+  <% @orders.each do |order| %>
+    <% if order.user == current_user %>
+      <tr>
+          <td>
+            <%= order.orderId%>
+          </td>
+          <td>
+            <%= order.firstName%>
+          </td>
+          
+          
+          <td><%= order.lastName %></td>
+          <td><%= order.created_at%></td>
+          <td><%= order.giftValue %></td>
+          <td><%= order.giftValue*0.1%></td>
+         <td><strong><%= order.delivery_status%></strong></td>
+
+          <%# <td><%= order.mobileNo %>
+          <%# <td><%= order.address %>
+        </tr>
+      <% end %>
+    <% end %>
+ </tbody>
+</table>

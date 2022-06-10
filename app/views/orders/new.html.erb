@@ -1,0 +1,67 @@
+<html>
+
+<script>
+function calComission()
+{
+  var v = parseInt(document.getElementById("val").value)
+  console.log(v);
+  var commission = parseInt(0.1*v);
+  document.getElementById("total_amount").value = v + commission;
+}
+</script>
+<body>
+
+
+
+<div class="margin">
+<div class="d-flex justify-content-around ">
+<div class="card " >
+  <div class="card-header text-center">
+    <h2>New Order</h2>
+  </div>
+  <div class="card-body" style="width: 28rem ">
+<%= form_for @order do |f| %>
+  <div class="field form-group" class="col-xs-2">
+    <strong><%= f.label :firstname %></strong>
+    <%= f.text_field :firstName, autofocus: true ,class:"form-control"%>
+  </div>
+  <div class="field form-group">
+    <strong><%= f.label :lastname %></strong>
+    <%= f.text_field :lastName ,class:"form-control"%>
+  </div>
+
+  <div class="field form-group">
+    
+    <strong><%= f.label :GiftCardValue %></strong>
+    <%= f.text_field :giftValue,class:"form-control" ,id:"val",onchange:"calComission()"%>
+  </div>
+  <div class="field form-group">
+    <strong><%= f.label :AmountPayable %></strong>
+    <%= f.text_field :giftValue,class:"form-control", id:"total_amount",value:"" %>
+  </div>
+  <div class="field form-group">
+    <strong><%= f.label :mobileNumber %></strong>
+    <%= f.text_field :mobileNo,class:"form-control" %>
+  </div>
+  <div class="field form-group">
+    <strong><%= f.label :address %></strong>
+    <%= f.text_field :address,class:"form-control" %>
+  </div>
+  <div class="field form-group">
+    <%# <strong><%= f.label :UserId %></strong>
+    <%= f.text_field :user_id, id: :order_user_id, value:current_user.id,type: :hidden,class:"form-control" %>
+  </div>
+  
+  <div class="actions text-center">
+    <%= f.submit "Place Order" ,class: "btn btn-primary"%>
+  </div>
+<% end %>
+</div>
+</div>
+
+</div>
+</div>
+
+</body>
+</html>
+

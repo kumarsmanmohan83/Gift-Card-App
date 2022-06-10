@@ -1,0 +1,42 @@
+<div class="margin">
+<div class="d-flex justify-content-around ">
+<div class="card " >
+  <div class="card-header text-center">
+    <h2>Sign In</h2>
+  </div>
+  <div class="card-body" style="width: 28rem ">
+<%= form_for :login do |f| %>
+  <div class="field form-group" >
+    <strong><%= f.label :username %></strong>
+    <%= f.text_field :username, autofocus: true,class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <strong><%= f.label :password %></strong>
+    <%= f.password_field :password ,class:"form-control"%>
+  </div>
+
+  <div class="actions text-center">
+    <%= f.submit "Log In" ,class: "btn btn-primary"%>
+  </div>
+  <h5 class="text-center">Don't have an account? <%= link_to "Sign Up", new_user_path%></h5>
+<% end %>
+</div>
+</div>
+
+</div>
+</div>
+
+
+
+
+
+
+
+ 
+
+
+
+
+  
+  
